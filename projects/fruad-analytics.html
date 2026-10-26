@@ -1,1 +1,298 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fraud Detection & Transaction Risk Analytics | Lilit Poghosyan</title>
+<style>
+:root {
+  --bg: #f7f6f2;
+  --paper: #ffffff;
+  --ink: #20231f;
+  --muted: #686e67;
+  --line: #e3e4dc;
+  --accent: #526b5d;
+  --soft: #e9eee8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+.wrap { width: min(900px, calc(100% - 40px)); margin: auto; }
+nav {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+}
+a { color: inherit; text-decoration: none; }
+.brand { font-weight: 750; letter-spacing: .02em; }
+.back { color: var(--muted); }
+main { padding: 70px 0 85px; }
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 750;
+}
+h1 {
+  font-size: clamp(38px, 6vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  margin: 18px 0;
+}
+.lead { color: var(--muted); font-size: 19px; max-width: 700px; }
+.tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+.tag { background: var(--soft); color: #405548; padding: 7px 12px; border-radius: 5px; font-size: 13px; }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 42px 0; }
+.stat { background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 22px; }
+.stat strong { display: block; font-size: 30px; letter-spacing: -.04em; }
+.stat span { color: var(--muted); font-size: 12px; }
+section { border-top: 1px solid var(--line); padding: 28px 0; }
+h2 { font-size: 24px; letter-spacing: -.03em; margin: 0 0 12px; }
+p, li { color: var(--muted); }
+ul { padding-left: 22px; }
+li { padding: 4px 0; }
+.takeaway { background: var(--soft); border-radius: 9px; padding: 24px; margin-top: 20px; }
+.takeaway p { margin-bottom: 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-block; border: 1px solid var(--ink); border-radius: 5px; padding: 12px 17px; font-size: 13px; font-weight: 650; }
+.primary { background: var(--ink); color: white; }
+.secondary { background: transparent; }
+.comparison {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.comparison th, .comparison td {
+  padding: 13px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.comparison th { color: var(--ink); font-weight: 650; }
+.comparison td { color: var(--muted); }
+.note { font-size: 13px; }
+footer { border-top: 1px solid var(--line); padding: 25px 0 35px; color: var(--muted); font-size: 12px; }
+@media(max-width:600px) {
+  .stats { grid-template-columns: 1fr; }
+  nav { align-items: flex-start; }
+  main { padding-top: 48px; }
+  .comparison { font-size: 12px; }
+  .comparison th, .comparison td { padding: 10px 6px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <a class="brand" href="../index.html">LILIT POGHOSYAN</a>
+  <a class="back" href="../index.html">← Back to portfolio</a>
+</nav>
+
+<main class="wrap">
+  <div class="eyebrow">Project 02 · Risk Analytics</div>
+
+  <h1>Fraud Detection &amp; Transaction Risk Analytics</h1>
+
+  <p class="lead">
+    Investigating transaction patterns and comparing fraud detection
+    approaches to understand how suspicious activity can be prioritised
+    when investigation capacity is limited.
+  </p>
+
+  <div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">pandas</span>
+    <span class="tag">scikit-learn</span>
+    <span class="tag">Risk Analytics</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>284,807</strong>
+      <span>Transactions in the original dataset</span>
+    </div>
+    <div class="stat">
+      <strong>492</strong>
+      <span>Labelled fraud cases in the original dataset</span>
+    </div>
+    <div class="stat">
+      <strong>90.91%</strong>
+      <span>Model recall on the held-out test set</span>
+    </div>
+    <div class="stat">
+      <strong>90 vs. 2</strong>
+      <span>Fraud cases detected: model vs. amount-based rule</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>The challenge</h2>
+    <p>
+      Fraud teams operate under limited investigation capacity. Reviewing
+      every transaction is impractical, while overly broad alerts can
+      create substantial work for analysts. The challenge is to identify
+      suspicious transactions effectively without relying on a single
+      indicator such as transaction amount.
+    </p>
+    <p>
+      This project investigates whether a statistical model can prioritise
+      labelled fraud cases more effectively than a simple rule that flags
+      the highest-value transactions.
+    </p>
+  </section>
+
+  <section>
+    <h2>My approach</h2>
+    <ul>
+      <li>Inspected the transaction dataset, class distribution, missing values and duplicate records.</li>
+      <li>Explored transaction amount patterns and compared fraud rates across amount segments.</li>
+      <li>Developed a logistic regression model using a stratified training, validation and test split.</li>
+      <li>Selected a probability threshold using validation data to target a limited review queue.</li>
+      <li>Evaluated model performance using recall, precision and other classification metrics.</li>
+      <li>Compared the model with a highest-amount rule at the same review capacity on held-out test data.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key finding</h2>
+    <div class="takeaway">
+      <p>
+        At an equal review capacity of approximately 2% of test transactions,
+        logistic regression detected 90 labelled fraud cases, compared with
+        2 detected by a highest-amount rule. This illustrates the potential
+        value of considering multiple transaction signals rather than
+        transaction amount alone.
+      </p>
+    </div>
+    <p>
+      The model achieved 90.91% recall on the held-out test set at the
+      validation-selected threshold. Recall measures the proportion of
+      labelled fraud cases identified by the model; it does not measure
+      financial losses prevented.
+    </p>
+  </section>
+
+  <section>
+    <h2>Model vs. simple rule</h2>
+    <p>
+      Both approaches were compared at the same review capacity:
+      1,140 flagged transactions in the held-out test set.
+    </p>
+
+    <table class="comparison">
+      <thead>
+        <tr>
+          <th>Measure</th>
+          <th>Logistic regression</th>
+          <th>Amount-based rule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transactions flagged</td>
+          <td>1,140</td>
+          <td>1,140</td>
+        </tr>
+        <tr>
+          <td>Fraud cases detected</td>
+          <td>90</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Recall</td>
+          <td>90.91%</td>
+          <td>2.02%</td>
+        </tr>
+        <tr>
+          <td>Precision</td>
+          <td>7.89%</td>
+          <td>0.18%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">
+      Results are from an offline evaluation on a held-out test set.
+      Precision indicates the proportion of flagged transactions that
+      were labelled fraud. Most model alerts were not labelled fraud,
+      highlighting the continuing need for effective review processes.
+    </p>
+  </section>
+
+  <section>
+    <h2>Business implications</h2>
+    <ul>
+      <li><strong>Look beyond transaction value.</strong> A high-value-only rule may miss fraud occurring in lower-value transactions.</li>
+      <li><strong>Optimise for review capacity.</strong> Measure how many cases are detected alongside the number of alerts requiring investigation.</li>
+      <li><strong>Keep analysts in the loop.</strong> False positives remain substantial, so model alerts should support investigation rather than automatically establish fraud.</li>
+      <li><strong>Validate before deployment.</strong> Test on future transactions and assess operational costs before using the approach in a live environment.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <ul>
+      <li>The evaluation uses a random stratified split rather than a time-based test of future transactions.</li>
+      <li>The anonymised V1–V28 features limit direct interpretation of individual transaction signals.</li>
+      <li>Fraud labels do not establish actual financial losses or recovered amounts.</li>
+      <li>Offline model results do not demonstrate real-world savings or fraud prevention.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills demonstrated</h2>
+    <p>
+      Data preparation · Exploratory data analysis · Risk segmentation ·
+      Logistic regression · Imbalanced classification · Model evaluation ·
+      Business interpretation · Evidence-based recommendations
+    </p>
+  </section>
+
+  <section>
+    <h2>Code &amp; methodology</h2>
+    <p>
+      Explore the notebook for the full workflow, reproducible analysis,
+      visualisations and model evaluation.
+    </p>
+    <div class="actions">
+      <a class="button primary"
+         href="YOUR_GITHUB_NOTEBOOK_URL"
+         target="_blank"
+         rel="noopener noreferrer">
+        Read the notebook ↗
+      </a>
+      <a class="button secondary"
+         href="YOUR_GITHUB_REPOSITORY_URL"
+         target="_blank"
+         rel="noopener noreferrer">
+        View source code ↗
+      </a>
+    </div>
+    <p class="note">
+      Replace both placeholder URLs with the published GitHub notebook
+      and repository links before deploying this page.
+    </p>
+  </section>
+
+  <div class="actions">
+    <a class="button primary" href="../index.html">← Back to all projects</a>
+  </div>
+</main>
+
+<footer class="wrap">
+  © Lilit Poghosyan · Data Analytics · Business Intelligence · Risk Analytics
+</footer>
+
+</body>
+</html>
+
