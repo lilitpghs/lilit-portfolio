@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloud Application Root Cause Analysis | Lilit Poghosyan</title>
+<style>
+:root {
+  --bg: #f7f6f2;
+  --paper: #ffffff;
+  --ink: #20231f;
+  --muted: #686e67;
+  --line: #e3e4dc;
+  --accent: #526b5d;
+  --soft: #e9eee8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+.wrap { width: min(900px, calc(100% - 40px)); margin: auto; }
+nav {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+}
+a { color: inherit; text-decoration: none; }
+.brand { font-weight: 750; letter-spacing: .02em; }
+.back { color: var(--muted); }
+main { padding: 70px 0 85px; }
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 750;
+}
+h1 {
+  font-size: clamp(38px, 6vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  margin: 18px 0;
+}
+.lead { color: var(--muted); font-size: 19px; max-width: 700px; }
+.tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
+.tag { background: var(--soft); color: #405548; padding: 7px 12px; border-radius: 5px; font-size: 13px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 42px 0; }
+.stat { background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 22px; }
+.stat strong { display: block; font-size: 30px; letter-spacing: -.04em; }
+.stat span { color: var(--muted); font-size: 12px; }
+section { border-top: 1px solid var(--line); padding: 28px 0; }
+h2 { font-size: 24px; letter-spacing: -.03em; margin: 0 0 12px; }
+p, li { color: var(--muted); }
+ul { padding-left: 22px; }
+li { padding: 4px 0; }
+.takeaway { background: var(--soft); border-radius: 9px; padding: 24px; margin-top: 20px; }
+.takeaway p { margin-bottom: 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-block; border: 1px solid var(--ink); border-radius: 5px; padding: 12px 17px; font-size: 13px; font-weight: 650; }
+.primary { background: var(--ink); color: white; }
+footer { border-top: 1px solid var(--line); padding: 25px 0 35px; color: var(--muted); font-size: 12px; }
+@media(max-width:600px) {
+  .stats { grid-template-columns: 1fr; }
+  nav { align-items: flex-start; }
+  main { padding-top: 48px; }
+}
+</style>
+</head>
+<body>
+<nav class="wrap">
+  <a class="brand" href="../index.html">LILIT POGHOSYAN</a>
+  <a class="back" href="../index.html">← Back to portfolio</a>
+</nav>
+
+<main class="wrap">
+  <div class="eyebrow">Project 01 · Explainable AI</div>
+  <h1>Cloud Application Root Cause Analysis</h1>
+  <p class="lead">
+    Investigating application data to understand patterns associated with errors
+    and make analytical findings easier to interpret.
+  </p>
+
+  <div class="tags">
+    <span class="tag">Python</span>
+    <span class="tag">XGBoost</span>
+    <span class="tag">SHAP</span>
+    <span class="tag">Data Analysis</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>5,899</strong>
+      <span>Application traces analysed</span>
+    </div>
+    <div class="stat">
+      <strong>3,145</strong>
+      <span>Normal traces</span>
+    </div>
+    <div class="stat">
+      <strong>2,754</strong>
+      <span>Erroneous traces</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>The challenge</h2>
+    <p>
+      Modern cloud applications rely on interconnected services. When errors
+      occur, monitoring data can be difficult to interpret. The goal was to
+      investigate which characteristics of application activity were associated
+      with erroneous behaviour.
+    </p>
+  </section>
+
+  <section>
+    <h2>My approach</h2>
+    <ul>
+      <li>Prepared application trace data into structured features describing service activity and trace characteristics.</li>
+      <li>Compared analytical approaches for distinguishing normal and erroneous traces.</li>
+      <li>Investigated which features influenced model predictions.</li>
+      <li>Used explainability methods to examine and interpret the results.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Key takeaway</h2>
+    <div class="takeaway">
+      <p>
+        Predictive performance alone is not enough. Analytical findings also
+        need to be interpretable. Comparing different explanations can provide
+        a clearer picture of patterns in complex application data, while
+        avoiding assumptions that an association proves the actual cause.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills demonstrated</h2>
+    <p>
+      Data preparation · Analytical problem-solving · Comparative analysis ·
+      Interpretation of findings · Evidence-based reasoning
+    </p>
+  </section>
+
+  <section>
+    <h2>Code & methodology</h2>
+    <p>
+      The supporting notebook and implementation can be made available here
+      once the code repository is organised and ready to share.
+    </p>
+  </section>
+
+  <div class="actions">
+    <a class="button primary" href="../index.html">← Back to all projects</a>
+  </div>
+</main>
+
+<footer class="wrap">
+  © Lilit Poghosyan · Data Analytics · Business Intelligence · Technology
+</footer>
+</body>
+</html>
